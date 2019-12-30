@@ -1,0 +1,49 @@
+*{margin: 0;padding: 0;box-sizing: border-box;}
+*::before{box-sizing: border-box;}
+*::after{box-sizing: border-box;}
+a{color: inherit;text-decoration: none;}
+input{font: inherit;}
+
+body{
+	font-size: 12px;
+	line-height: 1.5;
+	background: #bbb;
+}
+
+.page{
+	display: flex;
+}
+
+/* aside */
+.page > aside{
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	padding: 10px;
+}
+.page > aside > #newSong.active{
+	background: #4169E1;
+}
+
+.page > aside > #songList-container{
+	flex-grow: 1;
+	margin-top: 10px;
+}
+.page > aside > #songList-container >ul li{
+	border-bottom:1px solid royalblue ;
+}
+.page > aside > #songList-container >ul li.active{
+		background: hotpink;
+}
+.page > aside > #uploadArea{
+	width: 180px;
+	border: 2px dashed darkred;
+	padding: 20px;
+}
+
+/* main */
+.page > main{
+	padding: 10px;
+}
+
+
