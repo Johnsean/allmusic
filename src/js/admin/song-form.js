@@ -45,12 +45,7 @@
 		create(data){
 			// 上传成功后 点击save后 创建表数据
 			var Song = AV.Object.extend('Song');
-			var song = new Song();
-			
-			if(this.data.id !== data){
-				
-			}
-			// 保存时注意id 是否是同一个Id 即相同单元
+			var song = new Song();	
 			return song.save(data).then(function (song) {
 			  // console.log(song)
 			  return song
@@ -59,7 +54,7 @@
 		update(data){
 			var song = AV.Object.createWithoutData('Song', this.data.id);
 			return song.save(data).then(function (song) {
-			  console.log("更新后的song")
+			  // console.log("更新后的song")
 			  // console.log(song)
 			  return song;
 			})
@@ -108,8 +103,8 @@
 					}
 				//取表单每个value  组装 post()
 					this.model.reset()
-					console.log("reset")
-					console.log(this.model.data)
+					// console.log("reset")
+					// console.log(this.model.data)
 					this.view.render()
 			})	
 		},

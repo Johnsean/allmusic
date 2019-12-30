@@ -66,17 +66,23 @@
 		},
 		bindEventHub(){
 			window.eventHub.on("addSong",(data)=>{
-				console.log("eimt addSong 传过来的data")
-				console.log(data)
+				// console.log("eimt addSong 传过来的data")
+				// console.log(data)
 				this.view.create(data)
 				this.model.data.songs.push(data)
 				this.view.$el.find("ul >li.active").removeClass("active")
-				console.log("model上面的data songs[]")
-				console.log(this.model.data)
+				// console.log("model上面的data songs[]")
+				// console.log(this.model.data)
 			})
 			window.eventHub.on("editAc",(data)=>{
-				console.log("tirggle editac")
-				console.log(data)
+				// console.log("tirggle editac")
+				// console.log(data)
+				let songs = this.model.data.songs
+				for(let i = 0; i<songs.length; i++){
+					if(songs[i].id === data.id){
+						Object.assign(songs[i],data)
+					}
+				}
 				this.view.$el.find(`[data-id="${data.id}"]`).text(data.name)
 			})
 		}
