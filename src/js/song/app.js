@@ -8,7 +8,15 @@
 			this.$el.css({'background-image':`url(${data.cover})`}) //整个背景 待模糊
 			this.$el.find('.name').text(data.name).append(`<p>${data.singer}</p>`)
 			if(this.$el.find('audio').attr('src')!== data.url){
-				let audio = this.$el.find("audio").attr("src", data.url)	
+				let audio = this.$el.find("audio").attr("src", data.url).get(0)
+					audio.ontimeupdate = ()=>{
+						window.eventHub.emit('scrollLrc',audio.currentTime)
+					}
+					audio.onended = ()=>{
+						$('.status').removeClass('active')
+						$('.play').addClass('active').siblings().removeClass('active')
+						//停止动画转动
+					}
 			}
 			// this.play()  //自动播放
 			//插入歌词
@@ -76,15 +84,6 @@
 			return id
 		},
 		bindEvents(){
-			let audio = $(this.view.el).find('audio')[0]
-			audio.ontimeupdate = ()=>{
-				window.eventHub.emit('scrollLrc',audio.currentTime)
-			}
-			audio.onended = ()=>{
-				$('.status').removeClass('active')
-				$('.play').addClass('active').siblings().removeClass('active')
-				//停止动画转动
-			}
 			$('.status').on('click','div',(e)=>{
 				if($(e.currentTarget).attr('data-status')=== 'play'){
 					this.view.play()
@@ -96,19 +95,24 @@
 		},
 		bindEventHub(){
 			window.eventHub.on('scrollLrc',(time)=>{
-				let alltime = $('.lyric>p')
-				for(let i =0;i<alltime.length;i++){
-					let currenttime = $(alltime[i]).attr('data-time')
-					let nextTime =  $(alltime[i+1]).attr('data-time')
-					if( i === alltime.length-1){
-						nextTime =  $(alltime[i]).attr('data-time')
-					}
-					if(currenttime < time && time < nextTime){//当没有[00:00.00]时 不满足if--> lyr不动
-						let height = alltime[i].getBoundingClientRect().top - $('.lyric')[0].getBoundingClientRect().top
-						$(alltime[i]).addClass('active').siblings('.active').removeClass('active')
-						$('div.lyric').css({'transform':`translateY(-${height-37}px)`})
+				let allP = $('.lyric>p')
+				let p
+				for(let i =0;i<allP.length;i++){
+					if(i === allP.length-1){
+						p = allP[i]
+						break
+					}else{
+						let currenttime = allP.eq(i).attr('data-time')
+						let nextTime = allP.eq(i+1).attr('data-time')
+						if(currenttime <= time && time <= nextTime){//当没有[00:00.00]时 不满足if--> lyc会到末尾
+							p = allP[i]
+							break
+						}
 					}
 				}
+				let height = p.getBoundingClientRect().top - $('.lyric')[0].getBoundingClientRect().top
+				$('div.lyric').css({'transform':`translateY(${-(height==0?0:height-37)}px)`})
+				$(p).addClass('active').siblings('.active').removeClass('active')
 			})
 		}
 	}
