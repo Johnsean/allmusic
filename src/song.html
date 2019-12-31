@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+	<title> Play </title>
+	<link rel="stylesheet" href="./css/song.css">
+</head>
+<body>
+	<div class="page">
+		音乐
+		<audio src="#"></audio>
+		<div class="name"></div>
+		<div class="lyric-container">
+			<div class="lyric"></div>
+		</div>
+		<div class="status cover">
+			<div class="play active" data-status = "play">开始</div>
+			<div class="pause" data-status = "pause">暂停</div>
+		</div>
+	</div>
+	
+	<script src="../vendors/jquery.min.js"></script>
+	<!-- leanCloud数据库 -->
+	<script src="//cdn.jsdelivr.net/npm/leancloud-storage@4.1.0/dist/av-min.js"></script>
+	<script src="./js/initializers/av.js"></script>
+	<!-- 事件处理中心  -->
+	<script src="./js/admin/event-hub.js"></script>
+	<!-- 各模块 -->
+	<script src="./js/song/app.js"></script>
+
+</body>
+</html>

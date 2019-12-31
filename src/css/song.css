@@ -1,0 +1,54 @@
+.page{
+	width: 100vw;
+	height: 100vh;
+	background: url('#') no-repeat center;
+	background-size: cover;
+}
+
+div.name {
+	font: 20px bold;
+	text-align: center;
+	color: crimson;
+}
+
+div.lyric-container {
+	height: 20vh;
+	overflow: hidden;
+	text-align: center;
+}
+.lyric{
+	transition: 1s linear;
+}
+div.lyric > p.active{
+	color: slateblue;
+}
+
+@keyframes circle{
+	0%{transform: rotate(0deg);}
+	100%{transform: rotate(360deg);}
+}
+
+div.status{
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	width: 22%;
+	height: 10%;
+	background: url('http://q28i5lzjw.bkt.clouddn.com/cc.jpeg') no-repeat center;
+	/* 歌曲cover 待改 */
+	background-size: cover;
+	border-radius: 50%;
+	animation: circle 5s infinite linear;
+	animation-play-state:paused;
+}
+div.status.active{
+	animation-play-state:running;
+}
+
+div.status >div{
+	display: none;
+}
+div.status >div.active{
+	display: block;
+	color: red;
+}

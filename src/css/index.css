@@ -1,0 +1,15 @@
+#tabs>a{
+	border: 1px dashed crimson;
+}
+
+#tabs>a.active{
+	background: #FF69B4;
+}
+
+.box > div{
+	display: none;
+}
+
+.box > div.active{
+	display: block;
+}
