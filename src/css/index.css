@@ -13,3 +13,21 @@
 .box > div.active{
 	display: block;
 }
+
+/* playlists */
+#playlists{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+#playlists >a{
+	width: 30%;
+}
+#playlists :nth-child(2){
+	margin-left: 5%;
+	margin-right: 5%;
+}
+#playlists >a img{
+	display: block;
+	width: 100%;
+}
