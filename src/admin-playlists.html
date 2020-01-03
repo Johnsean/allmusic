@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+	<head>
+		<meta charset="UTF-8">
+		<title>后台歌单页面</title>
+		<link rel="stylesheet" type="text/css" href="./css/default.css"/>
+	</head>
+	<body>
+		<div class="page">
+			<aside>
+				<h1> 后台歌单管理 </h1>
+				<div id="songList-container"></div>
+			</aside>
+			<main></main>
+		</div>
+		
+		<script src="../vendors/jquery.min.js"></script>
+		<!-- leanCloud数据库 -->
+		<script src="//cdn.jsdelivr.net/npm/leancloud-storage@4.1.0/dist/av-min.js"></script>
+		<script src="./js/initializers/av.js"></script>
+		<!-- 事件处理中心  -->
+		<script src="./js/admin/event-hub.js"></script>
+		<!-- 各模块 -->
+		<script src="./js/admin/song-playlist.js"></script>
+
+	</body>
+</html>

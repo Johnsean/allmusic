@@ -8,7 +8,15 @@
 </head>
 <body>
 	<div class="page">
-		<div id="head"> 音乐 头 </div>
+		<header class="header">
+			<a href="#" class="logo">
+				<svg class="icon" aria-hidden="true">
+				    <use xlink:href="#icon-music2"></use>
+				</svg>
+				<span class="orign">云 音 乐</span>
+			</a>
+			<a class="btn-download" href="#">下载APP</a>
+		</header>
 		<div id="tabs">
 			<a data-tab-name="page-1" class="active">推荐歌曲</a>
 			<a data-tab-name="page-2">热歌</a>
@@ -25,6 +33,7 @@
 		</div>
 	</div>
 	
+	<script src="//at.alicdn.com/t/font_1596627_yawmegnfdh.js"></script>
 	<script src="../vendors/jquery.min.js"></script>
 	<!-- leanCloud数据库 -->
 	<script src="//cdn.jsdelivr.net/npm/leancloud-storage@4.1.0/dist/av-min.js"></script>
