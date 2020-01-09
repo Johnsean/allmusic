@@ -2,16 +2,18 @@
 *::before{box-sizing: border-box;}
 *::after{box-sizing: border-box;}
 a{color: inherit;text-decoration: none;}
+/* *{border:1px solid royalblue;} */
 
 body{
-	/* font-size: 12px; */
+	font-size: 12px;
 	line-height: 1.5;
 	background: #F6F6F5;
 }
 
 /* svg */
 .icon {
-   width: 1em; height: 1em;
+   width: 1em;
+   height: 1em;
    vertical-align: -0.15em;
    fill: currentColor;
    overflow: hidden;
@@ -19,69 +21,130 @@ body{
 
 /* head */
 .header{
+	font-size: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px 20px;
+}
+
+.header>a.btn-download{
+	font-size: 16px;
+	padding: 0 15px;
+	color: #999;
+	background: #FFFFFF;
+	border: 1px solid #d8d8d8;
+	border-radius:999px ;
+}
+
+.header>a.logo{
 	display: flex;
 	align-items: center;
 	font-weight: bold;
-	border: 1px solid red;
 }
-.header svg.icon{
-	width: 10vw;
-	margin-left: 10px;
+.header a svg.icon{
+	width: 25px;
+	height: 25px;
 	fill: #fff;
 	background: #3FB883;
 	border-radius: 50%;
 }
-.header use {
-	/* background: #4169E1; */
+.header a span.orign {
+	margin-left: 3vw;
 }
 
-.header .orign {
-	margin-left: 5vw;
-	flex-grow: 1;
+/* #tabs */
+#tabs{
+	position: relative;
+	display: flex;
 }
-.header .btn-download{
-	font-size: 15px;
-	color: #999;
-	text-align: right;
-	border: 1px solid black;
-	border-radius:10px ;
-	background: #FFFFFF;
+#tabs::before,
+#tabs::after{
+	content:'';
+	position: absolute;
+	width: 100vw;
+	height: 1px;
+	background: #2322;
 }
-
-
-
-
+#tabs::after{
+	top:100%;
+}
 
 #tabs>a{
-	border: 1px dashed crimson;
+	position: relative;
+	flex-grow: 1;
+	width: 33vw;
+	padding: 10px ;
+	text-align: center;
+	font:350 15px/1.5 -apple-system,sans-serif;
+	color: rgba(26,26,26,.5);
 }
 
 #tabs>a.active{
-	background: #FF69B4;
+	font-weight: 550;
+	color: rgba(34,213,156,1);
+}
+#tabs>a.active::after{
+	content:'';
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	width: 20px;
+	height: 3px;
+	transform: translateX(-10px);
+	background: rgba(34,213,156,1);
 }
 
-.box > div{
+
+/* box */
+.box{
+	padding-top: 20px;
+}
+.box>div{
 	display: none;
 }
 
-.box > div.active{
+.box>div.active{
 	display: block;
 }
 
-/* playlists */
+/* page-1 h2*/
+.box > .page-1>h2{
+	position: relative;
+	margin-bottom: 20px;
+	padding-left: 9px;
+	font:17px Helvetica,sans-serif,STHeiTi;
+	color:#333;
+}
+.box > .page-1>h2::after{
+	content:'';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	margin-top: -8px;
+	width: 2px;
+	height: 16px;
+	background: rgba(34,213,156,1);
+}
+
+
+/* page-1 playlists */
 #playlists{
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+	padding-bottom: 20px;
 }
 #playlists >a{
-	width: 30%;
+	width: 33.3%;
+	padding-left: 1px;
+	padding-right: 1px;
 }
 #playlists :nth-child(2){
-	margin-left: 5%;
-	margin-right: 5%;
+
 }
 #playlists >a img{
 	display: block;
 	width: 100%;
+	/* border-radius: 7px; */
 }
