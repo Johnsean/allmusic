@@ -10,6 +10,10 @@ body{
 	background: #F6F6F5;
 }
 
+.page{
+	height: 999px;
+}
+
 /* svg */
 .icon {
    width: 1em;
@@ -139,12 +143,17 @@ body{
 	width: 33.3%;
 	padding-left: 1px;
 	padding-right: 1px;
-}
-#playlists :nth-child(2){
-
+	margin-bottom: 13px;
 }
 #playlists >a img{
 	display: block;
 	width: 100%;
-	/* border-radius: 7px; */
+}
+#playlists >a>:last-child{
+	display:-webkit-box;
+	-webkit-line-clamp:2;
+	-webkit-box-orient:vertical;
+	/* height:38px; 上面三句=>两行提前截断留下省略号的位置 */
+	padding: 2px 2px 0 6px;
+	overflow: hidden;
 }
