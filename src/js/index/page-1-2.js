@@ -6,8 +6,16 @@
 			let $ali = songs.map((song)=>{	
 				return $(`
 				<a href='./song.html?id=${song.id}'>
-					<div>${song.name}</div>
-					<div>${song.singer}</div>
+					<div class="songName">${song.name}</div>
+					<div class="songSinger">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icon-sq3"></use>
+						</svg>
+						${song.singer}
+					</div>
+					<svg class="icon" aria-hidden="true">
+					    <use xlink:href="#icon-bofang"></use>
+					</svg>
 				</a>
 				`)
 			})
