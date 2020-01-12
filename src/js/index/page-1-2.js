@@ -1,6 +1,6 @@
 {
 	let view = {
-		el: "#songs",
+		el: ".page-1>.songs",
 		render(data={}){
 			let {songs} = data
 			let $ali = songs.map((song)=>{	

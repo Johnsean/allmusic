@@ -161,20 +161,20 @@ body{
 }
 
 /* songs */
-#songs>a{
+.songs>a{
 	position: relative;
 	display: block;
 	margin: 6px 0 6px 10px;
 }
 
-#songs>a>div.songName{
+.songs>a>div.songName{
 	font-size: 17px;
 }
-#songs>a>div.songSinger{
+.songs>a>div.songSinger{
 	color:#888;
 }
 
-#songs>a>svg{
+.songs>a>svg{
 	position: absolute;
 	top:50%;
 	right:5px;
@@ -183,7 +183,7 @@ body{
 	transform: translateY(-11px);
 	fill: #999999;
 }
-#songs>a::after{
+.songs>a::after{
 	position: absolute;
 	top:100%;
 	content: '';
