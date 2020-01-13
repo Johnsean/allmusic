@@ -1,19 +1,25 @@
 {
 	let view = {
 		el: '.page-3',
-		show(){
-			$(this.el).addClass('active')
+		show($selector){
+			$selector.addClass('active')
 		},
-		hide(){
-			$(this.el).removeClass('active')
+		hide($selector){
+			$selector.removeClass('active')
 		},
 		template: `
-			<form><input type="text" autofocus placeholder="搜索歌曲"></form>
+			<form><input type="text" autofocus placeholder="搜索歌曲">
+				<svg class="icon clear" aria-hidden="true">
+				    <use xlink:href="#icon-X"></use>
+				</svg>
+			</form>
+			<p class="prompt">123</p>
 		`,
 		render(data={}){
-			$(this.el).html(this.template)
-			if(JSON.stringify(data)!=='{}'){
-				console.log(data)
+			if(JSON.stringify(data) === '{}'){
+				$(this.el).find('.search').html(this.template)
+			}
+			else{
 				let {songs} = data
 				let $ali = songs.map((song)=>{	
 					return $(`
@@ -31,7 +37,7 @@
 					</a>
 					`)
 				})
-				$(this.el).append($ali)
+				$(this.el).find('.songs').append($ali)
 			}
 		}
 	}
@@ -46,7 +52,6 @@
 			query2.equalTo('singer', queryParas);
 			var query = AV.Query.or(query1, query2);
 			
-			query.equalTo('name', queryParas);
 			return query.find().then((songs)=>{
 				this.data.songs = songs.map((song)=>{
 					return {id: song.id, ...song.attributes}
@@ -65,24 +70,22 @@
 		bindEventHub(){
 			window.eventHub.on('selectTab',(tabName)=>{
 				if(tabName === 'page-3'){
-					this.view.show()
+					this.view.show($(this.view.el))
 					this.view.render()
 				}else{
-					this.view.hide()
+					this.view.hide($(this.view.el))
 				}
 			})
 		},
 		bindEvents(){
-			$(this.view.el).on('input','input',()=>{
+			$(this.view.el).on('input','input',(e)=>{
 				// 实时显示并搜索	
-				// console.log(1)
-				// let value = $(this.view.el).find('input').val()
-				// console.log(value)
+				let val = $(e.currentTarget).val()
+				$(this.view.el).find('.prompt').text('搜索: '+ val )
 			})
 			$(this.view.el).on('submit','form',(e)=>{
 				//按回车的时候 执行
 				e.preventDefault()
-				console.log(1)
 				let value = $(this.view.el).find('input').val()
 				this.model.find(value).then(()=>{
 					console.log(this.model.data)
