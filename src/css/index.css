@@ -215,3 +215,11 @@ body{
 .footer>:nth-child(2){
 	padding-top: 24px;
 }
+
+/* search */
+.bind{
+	visibility: hidden;
+}
+.bind.active{
+	visibility: visible;
+}
