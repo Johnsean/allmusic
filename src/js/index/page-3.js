@@ -9,11 +9,14 @@
 		},
 		template: `
 			<form><input type="text" autofocus placeholder="搜索歌曲">
+				<svg class="icon" aria-hidden="true">
+				    <use xlink:href="#icon-search"></use>
+				</svg>
 				<svg class="icon clear bind" aria-hidden="true">
 				    <use xlink:href="#icon-X"></use>
 				</svg>
 			</form>
-			<p class="prompt bind">123</p>
+			<p class="prompt bind">搜索...</p>
 		`,
 		render(data={}){
 			if(JSON.stringify(data) === '{}'){

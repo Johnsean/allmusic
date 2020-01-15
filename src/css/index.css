@@ -216,10 +216,43 @@ body{
 	padding-top: 24px;
 }
 
-/* search */
+/* search page */
+.search form{
+	position: relative;
+	padding: 15px 10px;
+	font-size: 14px;
+	border-bottom:1px solid #d4d4d4;
+}
+.search form input{
+	position: relative;
+	width: 100%;
+	height: 30px;
+	padding: 5px;
+	text-align: center;
+	border: none;
+	border-radius: 999px;
+}
+.search form svg{
+	position: absolute;
+	left:20px;
+	top: 39%;
+}
+.search form .clear{
+	left:92%;
+}
+
+.search .prompt{
+	height: 50px;
+	text-indent: .5em;
+	padding-right: 10px;
+	font-size: 15px;
+	line-height: 50px;
+	color: #507daf;
+	border-bottom:1px solid #d4d4d4;
+}
 .bind{
-	visibility: hidden;
+	display: none;
 }
 .bind.active{
-	visibility: visible;
+	display: block;
 }
