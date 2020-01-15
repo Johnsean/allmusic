@@ -116,6 +116,7 @@
 			
 			$(this.view.el).on('click','.clear',()=>{ //清空并隐藏
 				$(this.view.el).find('input').val('')
+				$(this.view.el).find('.songs p').html('')
 				this.view.hide($('.bind'))
 			})
 			
