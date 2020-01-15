@@ -250,6 +250,12 @@ body{
 	color: #507daf;
 	border-bottom:1px solid #d4d4d4;
 }
+
+.songs p{
+	padding: 10px;
+	text-align: center;
+}
+
 .bind{
 	display: none;
 }
