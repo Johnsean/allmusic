@@ -7,18 +7,31 @@
 		render(data){
 			let {songs,playlist} = data
 			let $playlist = $(`
-				<div class='playlist-cover'>
-					<img src='${playlist.url}'>
+				<div class='header'>
+					<div class='bg-blur' style='background-image:url(${playlist.url})'></div>	
+					<div class='cover'><img src='${playlist.url}'><span class='playlist-icon'>歌单</span></div>	
+					<div class='name'>
+					<h2>${playlist.name}</h2>	</div>
 				</div>
-				<div>${playlist.name}</div>
-				<div>${playlist.summary}</div>
+				<div class='summary'>${playlist.summary}</div>
 			`)
 			
-			let $ali = songs.map((song)=>{
+			let $ali = songs.map((song,index)=>{
 				return $(`
 				<a href='./song.html?id=${song.id}'>
-					<div>${song.name}</div>
-					<div>${song.singer}</div>
+					<div class="songIndex">${index+1}</div>
+					<div class="songInfo">
+						<div class="songName">${song.name}</div>
+						<div class="songSinger">
+							<svg class="icon" aria-hidden="true">
+								<use xlink:href="#icon-sq3"></use>
+							</svg>
+							${song.singer}
+						</div>
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icon-bofang"></use>
+						</svg>
+					</div>
 				</a>
 				`)
 			})

@@ -1,0 +1,156 @@
+*{margin: 0;padding: 0;box-sizing: border-box;}
+*::before{box-sizing: border-box;}
+*::after{box-sizing: border-box;}
+a{color: inherit;text-decoration: none;}
+
+/* svg */
+.icon {
+   width: 1em;
+   height: 1em;
+   vertical-align: -0.15em;
+   fill: currentColor;
+   overflow: hidden;
+}
+
+body{
+	background: #f8f8f8;
+}
+
+.page{
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	font: 14px/1.5 Helvetica,sans-serif,STHeiTi;	
+}
+
+/* playlist */
+.playlist{
+	/* background: #62d2; */
+}
+
+.playlist .header{
+	position: relative;
+	display: flex;
+	padding: 30px 10px 30px 15px;
+	overflow: hidden;
+	
+}
+.bg-blur{
+	position: absolute;
+	left:0;
+	top:0;
+	width: 100vw;
+	height: 100%;
+	z-index: -1;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50%;	
+	filter: blur(20px);
+	transform: scale(1.5);
+}
+.playlist .cover{
+	width: 126px;
+	height: 126px;
+	position: relative;
+}
+img{
+	width: 126px;
+	vertical-align: middle;
+}
+.cover .playlist-icon{
+	position: absolute;
+	color: #fff;
+	top: 10px;
+	left: 0;
+	padding: 0 8px;
+	height: 17px;
+	font-size: 9px;
+	text-align: center;
+	line-height: 17px;
+	border-top-right-radius: 17px;
+	border-bottom-right-radius: 17px;
+	background: rgba(217,48,48,.8);
+}
+
+.name{
+	margin-left: 16px;
+}
+.name h2{
+	font-size: 17px;
+	height: 44px;
+	color: #fefefe;
+	font-weight: 400;
+}
+
+.playlist div.summary{
+	margin: 0 10px 0 15px;
+	padding: 20px 0 18px 0;
+	color: #666;
+}
+
+/* song-list */
+.song-list{
+	flex-grow: 1;
+	font-size: 12px;
+	line-height: 1.5;
+}
+
+.song-list-title{
+	height: 23px;
+	line-height: 23px;
+	padding: 0 10px;
+	font-size: 12px;
+	color: #666;
+	font-weight: 400;
+	background-color: #eeeff0;
+}
+
+.song-list>a{
+	position: relative;
+	display: flex;
+	margin: 6px 0 6px 10px;
+	padding:6px 0;
+	
+}
+.song-list>a>.songIndex{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	color: #999;
+	margin-left: -10px;
+	font-size: 17px;
+}
+.song-list>a>.songInfo{
+	display: flex;
+	flex-direction: column;
+}
+
+.song-list>a>.songInfo>div.songName{
+	font-size: 17px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.song-list>a>.songInfo>div.songSinger{
+	color:#888;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.song-list>a>.songInfo>svg{
+	position: absolute;
+	top:50%;
+	right:10px;
+	width: 22px;
+	height: 22px;
+	transform: translateY(-11px);
+	fill: #999999;
+}
+.song-list>a::after{
+	position: absolute;
+	top:100%;
+	content: '';
+	width: 100%;
+	height: 1px;
+	background: rgba(0,0,0,.1);
+}
