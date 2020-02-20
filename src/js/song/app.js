@@ -5,7 +5,8 @@
 			this.$el = $(this.el)
 		},
 		render(data){
-			this.$el.css({'background-image':`url(${data.cover})`}) //整个背景 待模糊
+			this.$el.find('.bg-blur').css({'background-image':`url(${data.cover})`}) //整个背景 待模糊
+			this.$el.find('.cover').css({'background-image':`url(${data.cover})`})
 			this.$el.find('.name').text(data.name).append(`<p>${data.singer}</p>`)
 			if(this.$el.find('audio').attr('src')!== data.url){
 				let audio = this.$el.find("audio").attr("src", data.url).get(0)
@@ -13,7 +14,7 @@
 						window.eventHub.emit('scrollLrc',audio.currentTime)
 					}
 					audio.onended = ()=>{
-						$('.status').removeClass('active')
+						$('.cover').removeClass('active')
 						$('.play').addClass('active').siblings().removeClass('active')
 						//停止动画转动
 					}
@@ -38,11 +39,11 @@
 		},
 		play(){
 			this.$el.find('audio')[0].play()
-			$('.status').addClass('active') //控制cover 360度转
+			$('.cover').addClass('active') //控制cover 360度转
 		},
 		pause(){
 			this.$el.find('audio')[0].pause()
-			$('.status').removeClass('active')
+			$('.cover').removeClass('active')
 		}
 	}
 	let model = {

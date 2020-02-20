@@ -8,18 +8,30 @@
 </head>
 <body>
 	<div class="page">
-		音乐
+		<div class="logo">
+			<svg class="icon" aria-hidden="true">
+				<use xlink:href="#icon-music2"></use>
+			</svg>
+			<span class="orign">云 音 乐</span>
+		</div>
+		<div class="bg-blur"> </div>
 		<audio src="#"></audio>
 		<div class="name"></div>
 		<div class="lyric-container">
 			<div class="lyric"></div>
 		</div>
-		<div class="status cover">
-			<div class="play active" data-status = "play">开始</div>
-			<div class="pause" data-status = "pause">暂停</div>
+		<div class="status">
+			<div class="cover"></div>
+			<div class="play active" data-status = "play">
+				<svg class="icon" aria-hidden="true">
+				    <use xlink:href="#icon-bofang"></use>
+				</svg>
+			</div>
+			<div class="pause" data-status = "pause"></div>
 		</div>
 	</div>
 	
+	<script src="//at.alicdn.com/t/font_1596627_zh2uie363mq.js"></script>
 	<script src="../vendors/jquery.min.js"></script>
 	<!-- leanCloud数据库 -->
 	<script src="//cdn.jsdelivr.net/npm/leancloud-storage@4.1.0/dist/av-min.js"></script>

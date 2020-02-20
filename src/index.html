@@ -19,15 +19,23 @@
 		</header>
 		<div id="tabs">
 			<a data-tab-name="page-1" class="active">推荐</a>
-			<a data-tab-name="page-2">热歌</a>
+			<!-- <a data-tab-name="page-2">热歌</a> -->
 			<a data-tab-name="page-3">搜索</a>
 		</div>
 		<div class="box">
 			<div class="page-1 active">
 				<h2>推荐歌单</h2>
-				<div id="playlists">__推荐歌单__</div>
+				<div id="playlists">
+					<svg class="icon" aria-hidden="true">
+						<use xlink:href="#icon-loading"></use>
+					</svg>
+				</div>
 				<h2>最新音乐</h2>
-				<div class="songs"></div>
+				<div class="songs">
+					<svg class="icon" aria-hidden="true">
+						<use xlink:href="#icon-loading"></use>
+					</svg>
+				</div>
 				<div class="footer">
 					<a href="#">下载云音乐APP &nbsp;&nbsp;发现更多精彩</a>
 					<div>Copyright © 2019 - 2020</div>
@@ -42,7 +50,7 @@
 		</div>
 	</div>
 	
-	<script src="//at.alicdn.com/t/font_1596627_8s9qnlk7hqj.js"></script>
+	<script src="//at.alicdn.com/t/font_1596627_zh2uie363mq.js"></script>
 	<script src="../vendors/jquery.min.js"></script>
 	<!-- leanCloud数据库 -->
 	<script src="//cdn.jsdelivr.net/npm/leancloud-storage@4.1.0/dist/av-min.js"></script>

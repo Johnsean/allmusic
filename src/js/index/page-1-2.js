@@ -2,6 +2,7 @@
 	let view = {
 		el: ".page-1>.songs",
 		render(data={}){
+			$(this.el).html('')
 			let {songs} = data
 			let $ali = songs.map((song)=>{	
 				return $(`

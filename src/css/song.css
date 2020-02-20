@@ -1,4 +1,9 @@
+body {
+	margin: 0;
+	font-size: 16px;
+}
 .page{
+	position: relative;
 	width: 100vw;
 	height: 100vh;
 	background: url('#') no-repeat center;
@@ -6,21 +11,27 @@
 }
 
 div.name {
-	font: 20px bold;
+	font: 18px bold;
 	text-align: center;
-	color: crimson;
+	color: #fff;
+}
+div.name > p{ 
+	font-size: 16px;
+	color: hsla(0,0%,100%,.6);
+	margin-bottom: 0;
 }
 
 div.lyric-container {
 	height: 20vh;
 	overflow: hidden;
 	text-align: center;
+	color: hsla(0,0%,100%,.6);
 }
 .lyric{
 	transition: 1s linear;
 }
 div.lyric > p.active{
-	color: slateblue;
+	color: #fff;
 }
 
 @keyframes circle{
@@ -29,26 +40,78 @@ div.lyric > p.active{
 }
 
 div.status{
-	position: fixed;
-	left: 50%;
-	top: 50%;
-	width: 22%;
-	height: 10%;
-	background: url('http://q28i5lzjw.bkt.clouddn.com/cc.jpeg') no-repeat center;
-	/* 歌曲cover 待改 */
+	position: relative;
+	width: 296px;
+	height: 296px;
+	margin: 0 auto;
+	margin-top: 25px;
+}
+div.cover{
+	width: 296px;
+	height: 296px;
+	margin: 0 auto;
 	background-size: cover;
 	border-radius: 50%;
-	animation: circle 5s infinite linear;
+	animation: circle 15s infinite linear;
 	animation-play-state:paused;
 }
-div.status.active{
+
+div.cover.active{
 	animation-play-state:running;
 }
 
-div.status >div{
+div.status >div.play,div.status >div.pause{
 	display: none;
 }
 div.status >div.active{
 	display: block;
-	color: red;
+	width: 100%;
+	height: 100%;
+	color: #fff;
+}
+
+div.status > div.active>svg{
+	position: absolute;
+	width: 56px;
+	height: 56px;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+}
+.bg-blur{
+	position: absolute;
+	left:0;
+	top:0;
+	width: 100vw;
+	height: 100%;
+	z-index: -1;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50%;	
+	filter: blur(80px);
+	opacity: 1;
+}
+/* svg */
+.icon {
+   width: 1em;
+   height: 1em;
+   vertical-align: -0.15em;
+   fill: currentColor;
+   overflow: hidden;
+}
+div.logo{
+	display: flex;
+	padding: 8px;
+	align-items: center;
+}
+div.logo svg.icon{
+	width: 18px;
+	height: 18px;
+	fill: #fff;
+	background: #3FB883;
+	border-radius: 50%;
+}
+div.logo span.orign {
+	margin-left: 3vw;
+	color:#fefefe;
 }
